@@ -8,5 +8,12 @@ pipeline {
                 bat 'git --version'
             }
         }
+
+        stage('Check Node and npm') {
+            steps {
+                bat 'node --version'
+                bat 'npm --version'
+            }
+        }
     }
 }

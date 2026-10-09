@@ -3,24 +3,32 @@ pipeline {
     agent any
 
     stages {
-        stage('First Pipeline') {
+        stage('Checkout') {
             steps {
-                echo 'Hello from Jenkins!'
-                echo 'My MERN messaging app CI pipeline has started.'
+                echo 'Source code is managed in GitHub.'
             }
         }
 
-        stage('Simulate a Test Failure') {
+        stage('Build') {
             steps {
-                echo 'Running a simulated test...'
-                error 'Simulated test failure!'
+                echo 'Build stage is ready.'
             }
         }
 
-        stage('Build Application') {
+        stage('Test') {
             steps {
-                echo 'Building the application...'
+                echo 'Test stage is ready.'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+
+        failure {
+            echo 'Pipeline failed. Check the console logs.'
         }
     }
 }
